@@ -1,0 +1,17 @@
+# Kaikki .log -tiedostot
+*.log
+
+# VS Coden asetuskansio
+.vscode/
+
+# Wokwin simulaation väliaikaistiedostot
+*.tmp
+
+# Kansiot joita et halua gitissä
+testidata/
+
+#node_modules kansio
+node_modules/
+
+# Kuinka poistaa tiedosto gitistä
+# git rm --cached tiedosto_nimi
