@@ -1,0 +1,72 @@
+# Lesson 3 – Databases
+
+## 📘 Description
+This folder contains the exercises for **Lesson 3** of the IoT Perusteet course.  
+It includes a server made for a database using Node.js, Express and SQLite. 
+The server connects to a database and creates a table with id, name and email if it doesn’t yet exist.
+---
+
+## 🧩 Tasks
+
+### 🔧 Task 1: REST API with SQLite Database
+**Description:**  
+Create a RESTful API server (server.js) using Express.js and SQLite to manage user data. The server provides endpoints to create new users and retrieve all existing users from the database.
+
+**Implementation:**  
+- **Environment:** Node.js with Express.js
+- **Database:** SQLite
+- **Endpoints:**
+  - `GET /api/users` - Retrieves all users from the database
+  - `POST /api/users` - Creates a new user with name and email
+- **Key Features:**
+  - Automatic database and table creation on startup
+  - JSON request/response handling
+  - Error handling for database operations
+  - Unique email constraint enforcement
+- **Dependencies:**
+  - `express` - Web server framework
+  - `sqlite3` - SQLite database driver
+
+**Code Structure:**
+- Server runs on `http://localhost:3000`
+- Database file: `Elinandatabase.db`
+- Table: `users` with columns `id`, `name`, and `email`
+
+### 🔧 Task 2: Serial Communication & Cloud Data Integration
+**Description:**  
+Create a bridge server (server2.js) that reads sensor data from a Raspberry Pi Pico W via serial communication and forwards it to ThingSpeak cloud service. The server also provides a REST API endpoint to access the latest sensor readings.
+
+**Implementation:**  
+- **Environment:** Node.js with Express.js
+- **Communication:** Serial port communication with Wokwi simulator
+- **Cloud Integration:** ThingSpeak IoT platform
+- **Key Features:**
+  - Real-time serial data reading from Pico W
+  - Automatic data forwarding to ThingSpeak API
+  - REST endpoint to retrieve latest sensor values
+  - Error handling for serial and cloud communication
+- **Endpoints:**
+  - `GET /api/sensor` - Returns latest temperature and humidity data
+- **Dependencies:**
+  - `express` - Web server framework
+  - `serialport` - Serial communication library
+  - `axios` - HTTP client for API calls
+
+**Data Flow:**
+1. Pico W sends data via serial port (COM4) in format: `temperature,humidity`
+2. Server parses and stores the latest values
+3. Data is automatically sent to ThingSpeak cloud
+4. Clients can fetch latest data via REST API
+
+**Configuration:**
+- Update `THINGSPEAK_API_KEY` with your actual write API key
+- Configure correct COM port for your serial connection
+- Server runs on `http://localhost:3000`
+---
+
+📅 **Date:**  7/10/2025
+✍️ **Author:**  Elina Tienhaara
+🏫 **Course:** IoT Perusteet
+
+---
+
