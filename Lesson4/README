@@ -1,0 +1,190 @@
+# Lesson 4 – Frontend
+
+## 📘 Description
+This folder contains the exercises for **Lesson 4** of the IoT Basics course.  
+The lessons focus on data communication protocols, web APIs, cloud integration, and real-time visualization techniques used in IoT systems.
+
+## 🛠 Technologies Used
+- **Backend:** Node.js, Express.js
+- **Database:** SQLite
+- **Communication:** REST API, WebSocket, Serial Communication
+- **Frontend:** HTML5, JavaScript, Google Charts
+- **Cloud Services:** ThingSpeak, Discord Webhooks
+- **Tools:** Wokwi (for simulation)
+
+### 🔧 Task 1 (Fetch): Weather Data Web Application
+**Description:**  
+Create a web application that fetches and displays current weather data from an external API. The application shows real-time weather information for Helsinki, Finland using the Open-Meteo Weather API.
+
+**Implementation:**  
+- **Environment:** HTML5 and Vanilla JavaScript
+- **API Integration:** Open-Meteo Weather API
+- **Components:**
+  - `fetch_temperature.html` - Main web page structure with output container
+  - `fetch_temperature.js` - JavaScript module for API communication
+- **Key Features:**
+  - Fetches real-time weather data from external API
+  - Displays formatted weather information on web page
+  - Automatic data loading on page load
+  - Comprehensive error handling for API requests
+- **Technical Details:**
+  - Uses Fetch API for HTTP requests
+  - Fixed coordinates for Helsinki, Finland (latitude: 60.17, longitude: 24.94)
+  - Parses JSON response and extracts temperature data
+  - Updates DOM dynamically with weather information
+
+**Code Flow:**
+1. HTML page loads and executes JavaScript
+2. Fetch request sent to Open-Meteo API endpoint
+3. JSON response parsed for current weather data
+4. Temperature data extracted and formatted
+5. Results displayed in the output container
+6. Errors caught and shown to user
+
+**API Endpoint:**
+- `https://api.open-meteo.com/v1/forecast?latitude=60.17&longitude=24.94&current_weather=true`
+
+### 🔧 Task 2 (Webhook): Discord Webhook Notification Service
+**Description:**  
+Create a REST API service that forwards messages to a Discord channel using webhooks. The service acts as a bridge between client applications and Discord, enabling automated notifications.
+
+**Implementation:**  
+- **Environment:** Node.js with Express.js (ES Modules)
+- **Integration:** Discord Webhook API
+- **Key Features:**
+  - REST endpoint for sending notifications to Discord
+  - Input validation for message content
+  - Error handling for webhook communication
+  - JSON request/response handling
+- **Endpoints:**
+  - `POST /notify` - Sends a message to Discord channel
+- **Dependencies:**
+  - `express` - Web server framework
+  - `node-fetch` - HTTP client for webhook requests
+
+**Technical Details:**
+- Server runs on `http://localhost:3000`
+- Uses Discord webhook URL for channel integration
+- Validates required message field in request body
+- Handles Discord API response status codes
+- Provides appropriate error messages for failed deliveries
+
+**Request Format:**
+```json
+{
+  "message": "Your notification text here"
+}
+
+### 🔧 Task 3 (Websocket): WebSocket Echo Server and Client
+**Description:**  
+Create a real-time bidirectional communication system using WebSocket protocol. The implementation includes both a server that echoes received messages and a web client for user interaction.
+
+**Implementation:**  
+- **Technology:** WebSocket protocol with Node.js server and HTML/JavaScript client
+- **Components:**
+  - `server2.js` - WebSocket server using ws library
+  - `client.html` - Web client with user interface
+- **Key Features:**
+  - Real-time message broadcasting
+  - Connection status monitoring
+  - Message logging on both client and server
+  - Echo functionality with message prefix
+- **Server Details:**
+  - Runs on WebSocket port 8080
+  - Logs client connections and disconnections
+  - Echoes received messages back to client with "Echo:" prefix
+- **Client Details:**
+  - Connects to WebSocket server automatically
+  - Provides input field for sending messages
+  - Displays both sent and received messages in real-time
+  - Shows connection status
+
+**Technical Specifications:**
+- **Server Dependencies:** `ws` WebSocket library
+- **Protocol:** WebSocket (ws://)
+- **Port:** 8080 for server, client connects to `ws://localhost:8080`
+
+**Use Case:**
+- Demonstrates real-time communication fundamentals
+- Can be extended for chat applications or IoT device control
+- Shows bidirectional data flow between client and server
+
+### 🔧 Task 4 (GoogleChart): Google Charts Pie Chart Visualization
+**Description:**  
+Create an interactive pie chart visualization using Google Charts library to display daily activity data in a visually appealing format.
+
+**Implementation:**  
+- **Technology:** Google Charts JavaScript library
+- **Chart Type:** Pie Chart
+- **Key Features:**
+  - Interactive pie chart with hover effects
+  - Customizable title and styling
+  - Responsive chart rendering
+  - Predefined dataset for daily activities
+- **Data Structure:**
+  - Visualizes time allocation across different daily activities
+  - Categories: Work, Eat, Commute, Watch TV, Sleep
+  - Corresponding hours for each category
+- **Technical Details:**
+  - Uses Google Charts loader API
+  - Automatic chart drawing on page load
+  - Fixed container dimensions (900x500 pixels)
+  - Customizable title and chart options
+
+**Chart Configuration:**
+- Library: `corechart` package from Google Charts
+- Chart type: `PieChart`
+- Data format: Array-based data table
+- Container: DIV element with id `piechart`
+
+**Use Case:**
+- Demonstrates data visualization techniques
+- Can be adapted for IoT sensor data representation
+- Useful for displaying proportional data from various sources
+
+### 🔧 Task 5 (Full IoT): Real-time Sensor Data Server with WebSocket
+**Description:**  
+Create a hybrid server that provides both REST API and WebSocket connections for real-time sensor data, combined with a web dashboard for real-time visualization. The system generates mock temperature and humidity data and broadcasts it to connected clients in real-time.
+
+**Implementation:**  
+- **Environment:** Node.js with Express.js and WebSocket + HTML/JavaScript dashboard
+- **Communication:** Dual interface (REST + WebSocket) with real-time visualization
+- **Components:**
+  - `server.js` - Backend server with REST API and WebSocket
+  - `Googlefront.html` - Frontend dashboard with Google Charts
+- **Key Features:**
+  - REST API endpoint for on-demand data fetching
+  - WebSocket server for real-time data push
+  - Automatic mock data generation every minute
+  - Real-time line chart visualization
+  - Data windowing (keeps last 20 measurements)
+  - Dual Y-axis for temperature and humidity
+- **Endpoints:**
+  - `GET /api/sensor` - Returns latest sensor data as JSON
+  - `WebSocket /` - Real-time data stream connection
+
+**Dashboard Features:**
+- **Chart Type:** Interactive line chart with dual Y-axes
+- **Data Display:** Real-time temperature (red) and humidity (blue) curves
+- **Data Management:** Maintains rolling window of last 20 data points
+- **Visualization:** Smooth curve interpolation and responsive design
+
+**Technical Details:**
+- **Backend Dependencies:** `express`, `ws` (WebSocket), `cors`
+- **Frontend Library:** Google Charts `corechart` package
+- **Server Port:** 3000
+- **Update Interval:** 60 seconds
+- **WebSocket URL:** `ws://localhost:3000`
+
+**Data Flow:**
+1. Server generates mock sensor data every 60 seconds
+2. Data broadcasted to all connected WebSocket clients
+3. Dashboard receives real-time updates via WebSocket
+4. Chart automatically updates with new data points
+5. Old data points removed to maintain 20-point window
+
+**Use Cases:**
+- Real-time IoT monitoring dashboard
+- Sensor data visualization and analytics
+- Demonstrates complete IoT data pipeline from server to visualization
+- Suitable for environmental monitoring systems
