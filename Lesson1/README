@@ -1,16 +1,16 @@
 # Lesson 1 – IoT Perusteet
 
 ## 📘 Description
-This folder contains the exercises for **Lesson 1** of the IoT Basics course.  
+This folder contains the exercises for **Lesson 1** of the IoT Perusteet course.  
 Each task includes a simple project built in **Wokwi**, demonstrating fundamental IoT concepts such as LEDs, buttons, and sensors.
-All exercises are made using the Pi Pico W board and Micrpython.
+All exercises are made using the Raspberry Micropython Pico W board and Micropython language.
 ---
 
 ## 🧩 Tasks
 
 ### 🔧 Task 1: Blinking the LED with optimization
 **Description:**  
-Blink the LED 
+Blink the LED.
 
 **Implementation:**  
 - Environment: [Wokwi](https://wokwi.com/)  
@@ -116,9 +116,9 @@ Make a weather station whch send the data to ThingSpeak backend.
 ## 🧰 Requirements
 To replicate these projects, you’ll need:
 
-1. Access to [Wokwi](https://wokwi.com/) – an online Arduino and ESP simulator.  
+1. Access to [Wokwi](https://wokwi.com/)
 2. A Wokwi account (optional, but useful for saving your work).  
-3. The Pi Pico W board and the same components as listed in each task.  
+3. The Micropython Pico W board and the same components as listed in each task.  
 4. The provided code or Wokwi project link.
 
 **How to run a project:**
