@@ -1,0 +1,136 @@
+# Lesson 1 – IoT Perusteet
+
+## 📘 Description
+This folder contains the exercises for **Lesson 1** of the IoT Basics course.  
+Each task includes a simple project built in **Wokwi**, demonstrating fundamental IoT concepts such as LEDs, buttons, and sensors.
+All exercises are made using the Pi Pico W board and Micrpython.
+---
+
+## 🧩 Tasks
+
+### 🔧 Task 1: Blinking the LED with optimization
+**Description:**  
+Blink the LED 
+
+**Implementation:**  
+- Environment: [Wokwi](https://wokwi.com/)  
+- Components used:  
+  - LED  
+  - 1 kΩ resistor 
+- Link to the project in Wokwi:
+  - https://wokwi.com/projects/441705988916137985
+
+---
+
+### 🔧 Task 2: Turn the LED on with a button
+**Description:**  
+Turn the LED on while the user holds the button down.
+Turn the LED off when the user releases the button.
+
+**Implementation:**  
+- Environment: [Wokwi](https://wokwi.com/)  
+- Components used:  
+  - LED  
+  - 220 Ω resistor 
+  - Pushbutton
+- Link to the project in Wokwi:
+  - https://wokwi.com/projects/442245663001543681
+
+---
+
+### 🔧 Task 3: Traffic lights
+**Description:**  
+Turn on the traffic lights one at the time in a loop.
+when the user holds down the button, the red light turns on and the buzzer gives a signal.
+After a while, the buzzer is turned off and the traffic lights turn normally on again.
+
+**Implementation:**  
+- Environment: [Wokwi](https://wokwi.com/)  
+- Components used:  
+  - 3xLED (green, yellow, red)
+  - 3x220 Ω resistor 
+  - Pushbutton 6mm
+  - Buzzer
+- Link to the project in Wokwi:  
+  - https://wokwi.com/projects/442248767903892481
+
+---
+
+### 🔧 Task 4: Interrup
+**Description:**  
+Make a reaction game.
+Turn the led on. Make it turn of after a random time limit.
+Measure the time between the led turning off and the user clicking the button.
+
+**Implementation:**  
+- Environment: [Wokwi](https://wokwi.com/)  
+- Components used:  
+  - LED  
+  - 220 Ω resistor 
+  - Pushbutton 6mm
+- Link to the project in Wokwi:
+  - https://wokwi.com/projects/442250096921838593
+
+---
+
+### 🔧 Task 5: Burglary alarm
+
+**Description:**  
+Make your burglary alarm inform the user if it detects movement.
+**Implementation:**  
+- Environment: [Wokwi](https://wokwi.com/)  
+- Components used:  
+  - Motion sensor
+- Link to the program in Wokwi:
+  - https://wokwi.com/projects/442258560873940993
+
+---
+
+### 🔧 Task 6: Weather station
+**Description:**  
+Make a weather station which will inform the user of the temperature and humidity.
+
+**Implementation:**  
+- Environment: [Wokwi](https://wokwi.com/)  
+- Components used:  
+  - DHT22
+- Link to the project in Wokwi:
+  - https://wokwi.com/projects/442257589677403137
+
+---
+
+### 🔧 Task 7: Weather station with backend
+
+**Description:**
+Make a weather station whch send the data to ThingSpeak backend.
+
+**Implementation:**  
+- Environment: [Wokwi](https://wokwi.com/)  
+- Components used:  
+  - DHT22
+- Link to the project in Wokwi:
+  - https://wokwi.com/projects/442952172518221825
+
+---
+
+## 🧰 Requirements
+To replicate these projects, you’ll need:
+
+1. Access to [Wokwi](https://wokwi.com/) – an online Arduino and ESP simulator.  
+2. A Wokwi account (optional, but useful for saving your work).  
+3. The Pi Pico W board and the same components as listed in each task.  
+4. The provided code or Wokwi project link.
+
+**How to run a project:**
+1. Open the Wokwi project link.  
+2. Click the **“▶ Run”** button to start the simulation.  
+3. Observe the output (e.g., blinking LED, button press, sensor data).  
+4. Modify the code to explore how changes affect the behavior.
+
+---
+
+📅 **Date:** 7/10/2025 
+✍️ **Author:** Elina Tienhaara
+🏫 **Course:** IoT Perusteet 
+
+---
