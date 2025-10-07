@@ -18,13 +18,13 @@ db.run(`CREATE TABLE IF NOT EXISTS users (
     email TEXT NOT NULL UNIQUE
 )`);
 
-app.get('/api/sensor/', (req, res) => {
-    res.json({
-        temperature: 22.5,
-        humidity: 55,
-        status: "OK"
-    });
-});
+// app.get('/api/sensor/', (req, res) => {
+//    res.json({
+//        temperature: 22.5,
+//        humidity: 55,
+//        status: "OK"
+//    });
+// });
 
 app.get('/api/users', (req, res) => {
     console.log("In get endpoint");

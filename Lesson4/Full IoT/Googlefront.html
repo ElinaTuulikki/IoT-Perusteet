@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature & Humidity Dashboard</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(initChart);
+
+    let data, chart, options;
+
+    function initChart() {
+      data = google.visualization.arrayToDataTable([
+        ['Time', 'Temperature (°C)', 'Humidity (%)']
+      ]);
+
+      options = {
+        title: 'Temperature & Humidity Over Time',
+        curveType: 'function',
+        legend: { position: 'bottom' },
+        vAxes: {
+          0: {title: 'Temperature (°C)'},
+          1: {title: 'Humidity (%)'}
+        },
+        series: {
+          0: {targetAxisIndex: 0, color: 'red'},
+          1: {targetAxisIndex: 1, color: 'blue'}
+        }
+      };
+
+      chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      // WebSocket client
+      const ws = new WebSocket("ws://localhost:3000");
+      ws.onmessage = event => {
+        const sensor = JSON.parse(event.data);
+        updateChart(sensor);
+      };
+    }
+
+    function updateChart(sensor) {
+      data.addRow([sensor.time || new Date().toLocaleTimeString(), sensor.temperature, sensor.humidity]);
+
+      // Säilytetään viimeiset 20 mittausta
+      if (data.getNumberOfRows() > 20) {
+        data.removeRow(0);
+      }
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <h1>Temperature & Humidity Dashboard</h1>
+  <div id="curve_chart" style="width: 900px; height: 500px"></div>
+</body>
+</html>
