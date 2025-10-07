@@ -1,0 +1,37 @@
+# Lesson 2 – Backend
+
+## 📘 Description
+This folder contains the exercise for **Lesson 2** of the IoT Perusteet course.  
+It includes a simple server built using Node.js.
+Language: JavaScript.
+---
+
+## 🧩 Tasks
+
+### 🌡️ Task: Creating a server using Node.js
+**Description:**  
+Create a server using Node.js.  
+
+**Code and results:**  
+- Basic server using Node.js and Express
+- Tested with Postman
+
+---
+
+## 🧰 Requirements
+To replicate these projects, you’ll need:
+
+1.	Node.js installed
+2.	Express web framework installed
+
+**How to run a project:**
+1.	From the console: node server.js
+2.	You will get a message Server running at http://localhost:3000
+
+---
+
+📅 **Date:**  7/10/2025
+✍️ **Author:**  Elina Tienhaara
+🏫 **Course:** IoT Perusteet
+
+---
